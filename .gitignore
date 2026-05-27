@@ -1,0 +1,13 @@
+# Generated deployment logs
+*_Deployment_Log.txt
+MAM_Deployment_Log.txt
+SecurityBaseline_Deployment_Log.txt
+MDE_Baseline_Deployment_Log.txt
+
+# Generated audit/export artifacts
+asr-settings.json
+
+# PowerShell/editor noise
+*.tmp
+*.bak
+Thumbs.db

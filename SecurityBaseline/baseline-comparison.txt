@@ -1,0 +1,43 @@
+Windows: 290 | MDE: 47 | Top-level overlap: 8
+  CONFLICT: device_vendor_msft_policy_config_admx_windowsexplorer_enablesmartscreen
+  CONFLICT: device_vendor_msft_policy_config_deviceguard_lsacfgflags
+  CONFLICT: device_vendor_msft_policy_config_deviceinstallation_preventinstallationofmatchingdevicesetupclasses
+  CONFLICT: device_vendor_msft_policy_config_dmaguard_deviceenumerationpolicy
+  CONFLICT: device_vendor_msft_policy_config_internetexplorer_disablebypassofsmartscreenwarningsaboutuncommonfiles
+  CONFLICT: device_vendor_msft_policy_config_internetexplorer_preventmanagingsmartscreenfilter
+  CONFLICT: device_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~smartscreen_preventsmartscreenpromptoverride
+  CONFLICT: device_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~smartscreen_smartscreenenabled
+
+=== Value Comparison for Overlapping Settings ===
+[SAME (redundant)]
+  Setting : device_vendor_msft_policy_config_admx_windowsexplorer_enablesmartscreen
+  Windows : device_vendor_msft_policy_config_admx_windowsexplorer_enablesmartscreen_1
+  MDE     : device_vendor_msft_policy_config_admx_windowsexplorer_enablesmartscreen_1
+[SAME (redundant)]
+  Setting : device_vendor_msft_policy_config_deviceguard_lsacfgflags
+  Windows : device_vendor_msft_policy_config_deviceguard_lsacfgflags_1
+  MDE     : device_vendor_msft_policy_config_deviceguard_lsacfgflags_1
+[SAME (redundant)]
+  Setting : device_vendor_msft_policy_config_deviceinstallation_preventinstallationofmatchingdevicesetupclasses
+  Windows : device_vendor_msft_policy_config_deviceinstallation_preventinstallationofmatchingdevicesetupclasses_1
+  MDE     : device_vendor_msft_policy_config_deviceinstallation_preventinstallationofmatchingdevicesetupclasses_1
+[SAME (redundant)]
+  Setting : device_vendor_msft_policy_config_dmaguard_deviceenumerationpolicy
+  Windows : device_vendor_msft_policy_config_dmaguard_deviceenumerationpolicy_0
+  MDE     : device_vendor_msft_policy_config_dmaguard_deviceenumerationpolicy_0
+[SAME (redundant)]
+  Setting : device_vendor_msft_policy_config_internetexplorer_disablebypassofsmartscreenwarningsaboutuncommonfiles
+  Windows : device_vendor_msft_policy_config_internetexplorer_disablebypassofsmartscreenwarningsaboutuncommonfiles_1
+  MDE     : device_vendor_msft_policy_config_internetexplorer_disablebypassofsmartscreenwarningsaboutuncommonfiles_1
+[SAME (redundant)]
+  Setting : device_vendor_msft_policy_config_internetexplorer_preventmanagingsmartscreenfilter
+  Windows : device_vendor_msft_policy_config_internetexplorer_preventmanagingsmartscreenfilter_1
+  MDE     : device_vendor_msft_policy_config_internetexplorer_preventmanagingsmartscreenfilter_1
+[SAME (redundant)]
+  Setting : device_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~smartscreen_preventsmartscreenpromptoverride
+  Windows : device_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~smartscreen_preventsmartscreenpromptoverride_1
+  MDE     : device_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~smartscreen_preventsmartscreenpromptoverride_1
+[SAME (redundant)]
+  Setting : device_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~smartscreen_smartscreenenabled
+  Windows : device_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~smartscreen_smartscreenenabled_1
+  MDE     : device_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~smartscreen_smartscreenenabled_1

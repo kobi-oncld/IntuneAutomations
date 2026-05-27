@@ -1,0 +1,37 @@
+
+id             : a6157a7f-aa00-42d9-ac82-7d2479f545db_1
+displayName    : Win365 Device Preparation
+version        : 1
+templateFamily : enrollmentConfiguration
+lifecycleState : active
+isDeprecated   : 
+
+id             : 90316f12-246d-44c6-a767-f87692e86083_1
+displayName    : Microsoft 365 Apps for Enterprise Security Baseline
+version        : 1
+templateFamily : baseline
+lifecycleState : superseded
+isDeprecated   : 
+
+id             : 90316f12-246d-44c6-a767-f87692e86083_2
+displayName    : Microsoft 365 Apps for Enterprise Security Baseline
+version        : 2
+templateFamily : baseline
+lifecycleState : active
+isDeprecated   : 
+
+id             : b00e1a0f-19dd-41de-8243-e6733ca7b4ae_1
+displayName    : Windows 365 Security Baseline
+version        : 1
+templateFamily : baseline
+lifecycleState : active
+isDeprecated   : 
+
+id             : b00e1a0f-19dd-41de-8243-e6733ca7b4ae_3
+displayName    : Windows 365 Security Baseline
+version        : 3
+templateFamily : baseline
+lifecycleState : superseded
+isDeprecated   : 
+
+
