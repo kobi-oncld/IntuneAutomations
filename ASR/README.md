@@ -10,7 +10,7 @@ Deploys the **OnCloud - ASR Rules** policy to Microsoft Intune as an **Endpoint 
 > Deploy in Audit mode first (`-AuditMode`), monitor for 2–4 weeks, then switch to Block. See [Audit to Block Migration](#audit-to-block-migration) below.
 
 > [!NOTE]
-> Network Protection is **not** part of this template — it is configured separately via the MDE Security Baseline or a dedicated policy.
+> Network Protection is **not** part of this template — it is deployed via the MDE Security Baseline (`SecurityBaseline/MDE/`).
 
 ## Files
 
@@ -58,7 +58,7 @@ All rules are set to **Block** (or **Audit** when `-AuditMode` is used).
 Controlled Folder Access is set to **Audit** regardless of `-AuditMode`. In Audit mode it logs which apps would have been blocked without actually blocking anything, so no allow-list is needed. Once you've reviewed the audit logs and built an allow-list for your environment, you can change this to Block in a separate CFA policy.
 
 > [!NOTE]
-> **Network Protection** is not included in this template. It is configured separately via the MDE Security Baseline (`SecurityBaseline/MDE/`) or a standalone Endpoint Security profile.
+> **Network Protection** is not included in this template. It is deployed via the MDE Security Baseline (`SecurityBaseline/MDE/`).
 
 </details>
 

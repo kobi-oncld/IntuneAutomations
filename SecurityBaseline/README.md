@@ -23,9 +23,9 @@ Each baseline excludes areas managed by another policy to prevent conflicts. The
 | OS hardening (UAC, SMB, RPC, network) | ✅ | — | — | Windows Baseline |
 | Microsoft Defender Antivirus | — | ✅ | — | MDE Baseline |
 | Windows Firewall | — | ✅ | — | MDE Baseline |
+| Network Protection | — | ✅ | — | MDE Baseline |
 | Microsoft 365 Apps for Enterprise | — | — | ✅ | M365 Baseline |
 | Attack Surface Reduction (ASR) rules | — | — | — | `ASR/Deploy-ASRPolicy.ps1` |
-| Network Protection | — | — | — | `ASR/Deploy-ASRPolicy.ps1` |
 | BitLocker / Disk Encryption | — | — | — | `BitLocker/` |
 | Windows Hello for Business | — | — | — | *Separate identity policy* |
 

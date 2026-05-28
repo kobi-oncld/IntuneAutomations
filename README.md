@@ -85,7 +85,7 @@ Deploy in this order to avoid policy conflicts. Each area manages its own settin
 2.  Deploy-WindowsSecurityBaseline.ps1      (OS hardening — excludes BitLocker/Defender/Firewall/ASR)
 3.  Deploy-MDESecurityBaseline.ps1          (Defender AV + Firewall — excludes ASR/BitLocker/WHfB)
 4.  Deploy-M365AppsSecurityBaseline.ps1     (Office app hardening)
-5.  Deploy-ASRPolicy.ps1 -AuditMode         (ASR + Network Protection in Audit — assess impact first)
+5.  Deploy-ASRPolicy.ps1 -AuditMode         (ASR rules in Audit — assess impact first)
 6.  Deploy-WindowsCompliancePolicy.ps1      (Compliance gate — depends on BitLocker + Defender being deployed)
 7.  Deploy-macOSCompliancePolicy.ps1        (macOS compliance gate)
 8.  New-MAMPolicies.ps1                     (MAM for BYOD/mobile — independent of above)
@@ -124,9 +124,9 @@ The three security baselines are deliberately scoped to avoid conflicts.
 | OS Hardening (UAC, SMB, RPC…) | ✅ | — | Windows Baseline |
 | Microsoft Defender Antivirus | — | ✅ | MDE Baseline |
 | Windows Firewall | — | ✅ | MDE Baseline |
+| Network Protection | — | ✅ | MDE Baseline |
 | M365 Apps (macros, ActiveX, add-ins) | — | — | M365 Baseline |
 | Attack Surface Reduction (ASR) | — | — | `ASR/` |
-| Network Protection | — | — | `ASR/` |
 | BitLocker / Disk Encryption | — | — | `BitLocker/` |
 | Windows Hello for Business | — | — | *Separate identity policy* |
 

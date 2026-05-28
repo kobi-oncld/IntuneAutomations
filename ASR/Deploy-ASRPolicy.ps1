@@ -12,7 +12,7 @@
     The script queries the tenant's own template catalog to build the settings,
     so it automatically adapts to new rule additions without code changes.
 
-    All ASR rules and Network Protection are set to Block by default.
+    All ASR rules are set to Block by default.
     Use -AuditMode to configure everything as Audit for initial assessment.
 
     Controlled Folder Access is intentionally left at Not Configured — it
@@ -28,7 +28,7 @@
     Delete and recreate the policy if one with the same name already exists.
 
 .PARAMETER AuditMode
-    Configure all ASR rules and Network Protection in Audit mode instead of Block.
+    Configure all ASR rules in Audit mode instead of Block.
     Useful for assessing impact before enforcing Block across production devices.
     The policy will be named "OnCloud - ASR Rules (Audit)".
 
@@ -239,8 +239,7 @@ if ($existingPolicy) {
 
 # ── Settings: Block/Audit Override Logic ──────────────────────────────────────
 #
-# ASR rule and Network Protection choice settings follow the Settings Catalog
-# word suffix pattern:
+# ASR rule choice settings follow the Settings Catalog word suffix pattern:
 #   _off   = Not configured / Disabled
 #   _block = Block
 #   _audit = Audit mode
@@ -253,8 +252,6 @@ $asrKeywords = @(
     'attacksurface',
     'asrblock',
     'asrrule',
-    'enablenetworkprotect',
-    'networkprotect',
     'guardrailsenabled_asr'
 )
 
@@ -263,7 +260,7 @@ $auditOnlyKeywords = @(
     'controlledfolder'
 )
 
-function Test-IsAsrOrNpSetting {
+function Test-IsAsrSetting {
     param([string]$DefId)
     foreach ($kw in $asrKeywords) {
         if ($DefId -ilike "*$kw*") { return $true }
@@ -329,7 +326,7 @@ if ($packedSetting) {
             $chosenVal = "${defId}_2"
             Write-Log "  [Audit always] $defId" 'INFO'
             $totalOverride++
-        } elseif (Test-IsAsrOrNpSetting $defId) {
+        } elseif (Test-IsAsrSetting $defId) {
             $chosenVal = "${defId}${targetSuffix}"
             Write-Log "  [$modeLabel] $defId" 'INFO'
             $totalOverride++
@@ -401,7 +398,7 @@ foreach ($st in $stAll) {
             if (Test-IsAuditOnlySetting $childDefId) {
                 $childChosenVal = if ($childDefaultVal) { ($childDefaultVal -replace '_(off|block|audit|warn|\d+)$', '') + '_2' } else { "${childDefId}_2" }
                 $totalOverride++
-            } elseif (Test-IsAsrOrNpSetting $childDefId) {
+            } elseif (Test-IsAsrSetting $childDefId) {
                 $childChosenVal = if ($childDefaultVal) { ($childDefaultVal -replace '_(off|block|audit|warn|\d+)$', '') + $targetSuffix } else { "${childDefId}${targetSuffix}" }
                 $totalOverride++
             } else {
@@ -479,7 +476,7 @@ foreach ($st in $stAll) {
             $chosenVal = if ($defaultVal) { ($defaultVal -replace '_(off|block|audit|warn|\d+)$', '') + '_2' } else { "${defId}_2" }
             Write-Log "  [Audit always] $defId" 'INFO'
             $totalOverride++
-        } elseif (Test-IsAsrOrNpSetting $defId) {
+        } elseif (Test-IsAsrSetting $defId) {
             $chosenVal = if ($defaultVal) { ($defaultVal -replace '_(off|block|audit|warn|\d+)$', '') + $targetSuffix } else { "${defId}${targetSuffix}" }
             Write-Log "  [$modeLabel] $defId" 'INFO'
             $totalOverride++
@@ -600,7 +597,7 @@ try {
 }
 
 # ── Policy Creation with Dependency Resolution Loop ───────────────────────────
-$descText = "OnCloud ASR Rules policy — $modeLabel mode. All ASR rules and Network Protection configured. Controlled Folder Access: Audit (always). Managed by Deploy-ASRPolicy.ps1."
+$descText = "OnCloud ASR Rules policy — $modeLabel mode. All ASR rules configured. Controlled Folder Access: Audit (always). Managed by Deploy-ASRPolicy.ps1."
 
 Write-Log "Creating policy '$policyDisplayName'..." 'INFO'
 $maxAttempts   = 300
@@ -707,7 +704,7 @@ while (-not $policyCreated -and $attempt -lt $maxAttempts) {
 
                         if (Test-IsAuditOnlySetting $childId) {
                             $childChosenVal = ($childDefVal -replace '_(off|block|audit|warn|\d+)$', '') + '_2'
-                        } elseif (Test-IsAsrOrNpSetting $childId) {
+                        } elseif (Test-IsAsrSetting $childId) {
                             $childChosenVal = ($childDefVal -replace '_(off|block|audit|warn|\d+)$', '') + $targetSuffix
                         } else {
                             $childChosenVal = $childDefVal
@@ -802,3 +799,4 @@ if ($assignTarget) {
 }
 
 Write-Log "=== Deployment complete. Policy: '$policyDisplayName' ===" 'SUCCESS'
+

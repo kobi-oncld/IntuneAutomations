@@ -191,8 +191,6 @@ if ($existingPolicy) {
 $excludeKeywords = @(
     'attacksurface',           # ASR rules
     'asr',                     # ASR rules (alternative ID)
-    'networkprotection',       # Network Protection (managed with ASR policy)
-    'enablenetworkprotection', # Network Protection (alternative ID)
     'bitlocker',               # BitLocker (managed by dedicated BitLocker policy)
     'encryption',              # Device Encryption
     'passportforwork',         # Windows Hello for Business
@@ -200,7 +198,7 @@ $excludeKeywords = @(
     'helloforbusiness'         # Windows Hello for Business (alternative ID)
 )
 
-$descText = "Customised MDE Security Baseline. Defender Antivirus and Windows Firewall settings included. ASR rules and Network Protection are Not Configured (managed by the dedicated ASR policy). BitLocker and Windows Hello are Not Configured (managed by dedicated policies)."
+$descText = "Customised MDE Security Baseline. Defender Antivirus, Windows Firewall, and Network Protection settings included. ASR rules are Not Configured (managed by dedicated ASR policy). BitLocker and Windows Hello are Not Configured (managed by dedicated policies)."
 
 # ── Build settings array from templates ───────────────────────────────────────
 Write-Log "Fetching setting templates from MDE baseline template..." "INFO"

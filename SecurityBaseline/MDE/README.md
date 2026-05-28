@@ -25,7 +25,7 @@ Deploys the **OnCloud - MDE Security Baseline** policy to Microsoft Intune as an
 | DMA Guard | ✅ Included | This policy |
 | Device Installation restrictions | ✅ Included | This policy |
 | Attack Surface Reduction (ASR) rules | — Excluded | Dedicated ASR policy |
-| Network Protection | — Excluded | Deployed with ASR policy |
+| Network Protection | ✅ Included | This policy |
 | BitLocker / Device Encryption | — Excluded | `BitLocker/Deploy-BitLockerPolicy.ps1` |
 | Windows Hello for Business | — Excluded | Dedicated identity / enrollment config |
 
